@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import * as DOMPurify from 'dompurify'
 import { marked } from 'marked'
-import { FaArrowsAlt, FaHeart, FaEdit, FaEye } from 'react-icons/fa'
+import { FaArrowsAlt, FaCompressArrowsAlt, FaHeart, FaEdit, FaEye } from 'react-icons/fa'
 import './App.css'
 
 marked.setOptions({
@@ -62,10 +62,17 @@ const App = () => {
             </label>
           </div>
           <div>
-            <FaArrowsAlt
-              style={{ cursor: 'pointer' }}
-              onClick={editorHandleClick}
-            />
+            {isPreviewerVisible ? (
+              <FaArrowsAlt
+                style={{ cursor: 'pointer' }}
+                onClick={editorHandleClick}
+              />
+            ) : (
+              <FaCompressArrowsAlt
+                style={{ cursor: 'pointer' }}
+                onClick={editorHandleClick}
+              />
+            )}
           </div>
         </div>
         <div id='editor-body'>
@@ -88,10 +95,17 @@ const App = () => {
             <FaEye /> Previewer
           </div>
           <div>
-            <FaArrowsAlt
-              style={{ cursor: 'pointer' }}
-              onClick={previewerHandleClick}
-            />
+            {isPreviewerVisible ? (
+              <FaArrowsAlt
+                style={{ cursor: 'pointer' }}
+                onClick={previewerHandleClick}
+              />
+            ) : (
+              <FaCompressArrowsAlt
+                style={{ cursor: 'pointer' }}
+                onClick={previewerHandleClick}
+              />
+            )}
           </div>
         </div>
         <div
