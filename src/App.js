@@ -95,7 +95,7 @@ const App = () => {
             <FaEye /> Previewer
           </div>
           <div>
-            {isPreviewerVisible ? (
+            {isEditorVisible ? (
               <FaArrowsAlt
                 style={{ cursor: 'pointer' }}
                 onClick={previewerHandleClick}
