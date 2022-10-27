@@ -1,38 +1,155 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #111;
+}
+
+.app {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: blueviolet;
   min-height: 100vh;
+  padding: 10px 0;
+  position: relative;
+  /* test */
+}
+
+#editor-wrapper {
+  width: 85%;
+  margin: 0 auto 1rem auto;
+}
+
+#editor-header,
+#preview-header {
+  background-color: violet;
+  border: 1px solid #333;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: .3rem 1rem;
+  font-weight: 600;
 }
 
-.App-link {
-  color: #61dafb;
+#editor,
+#preview {
+  width: 100%;
+  min-height: 30vh;
+  /* Also set by the useEffect hook on initial loads */
+  padding: .5rem .5rem 1rem .5rem;
+  border: 1px solid #333;
+  border-top: none;
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+textarea {
+  font-size: 1rem;
+}
+
+#preview-wrapper {
+  width: 95%;
+  margin: auto;
+}
+
+/* The class hides the element it is applied
+to relative to the .app section which is set
+to "position: relative" */
+
+.hide-section {
+  position: absolute;
+  left: 110%;
+  bottom: 110%;
+}
+
+#preview {
+  background-color: #fff;
+  color: #333;
+  text-align: left;
+  line-height: 2;
+  padding: .5rem 1rem 1.5rem 1rem;
+}
+
+a {
+  color: blueviolet;
+}
+
+a:hover,
+a:visited {
+  color: violet;
+}
+
+p {
+  margin-top: .5rem;
+}
+
+h1+p,
+h2+p,
+h3+p,
+h4+p,
+h5+p {
+  margin-top: 1rem;
+}
+
+blockquote {
+  width: 95%;
+  margin: 1rem auto;
+  background-color: violet;
+  text-align: center;
+  padding: .25rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-left: 5px solid blueviolet;
+}
+
+pre,
+code {
+  /* background-color: #aaa; */
+  background-color: #eee;
+  padding: .3rem;
+  overflow: scroll;
+}
+
+/* pre {
+  min-height: 50px;
+} */
+
+pre code {
+  background-color: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  padding: .5rem 1rem;
+}
+
+li {
+  background-color: #eee;
+  margin: .1rem 0;
+  padding: .3rem .5rem;
+}
+
+li:nth-child(even) {
+  background-color: #fff;
+}
+
+footer {
+  font-size: .8rem;
+  padding: .3rem 0;
+  color: #fff;
+}
+
+footer a,
+footer a:hover,
+footer a:visited {
+  color: #fff;
 }
