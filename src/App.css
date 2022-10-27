@@ -11,15 +11,14 @@ body {
   line-height: 1.6;
   font-size: 1rem;
   color: #111;
+  text-align: center;
 }
 
 .app {
-  text-align: center;
   background-color: blueviolet;
   min-height: 100vh;
   padding: 10px 0;
   position: relative;
-  /* test */
 }
 
 #editor-wrapper {
@@ -34,23 +33,22 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: .3rem 1rem;
+  padding: .4rem 1rem;
   font-weight: 600;
 }
 
 #editor,
 #preview {
   width: 100%;
-  min-height: 30vh;
-  /* Also set by the useEffect hook on initial loads */
+  min-height: 30vh; /* Also set by the useEffect hook on initial loads */
   padding: .5rem .5rem 1rem .5rem;
   border: 1px solid #333;
   border-top: none;
-  outline: none;
 }
 
-textarea {
+#editor {
   font-size: 1rem;
+  outline: none;
 }
 
 #preview-wrapper {
@@ -101,7 +99,6 @@ blockquote {
   width: 95%;
   margin: 1rem auto;
   background-color: violet;
-  text-align: center;
   padding: .25rem;
   font-size: 1.5rem;
   font-weight: 600;
@@ -110,15 +107,10 @@ blockquote {
 
 pre,
 code {
-  /* background-color: #aaa; */
   background-color: #eee;
   padding: .3rem;
   overflow: scroll;
 }
-
-/* pre {
-  min-height: 50px;
-} */
 
 pre code {
   background-color: none;
