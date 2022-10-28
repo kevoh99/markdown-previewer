@@ -151,6 +151,10 @@ footer a:visited {
   color: #fff;
 }
 
+footer a:hover {
+  text-decoration: none;
+}
+
 /************************************************
 ************** Responsive design ***************/
 @media screen and (min-width: 320px) {

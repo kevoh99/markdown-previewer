@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import * as DOMPurify from 'dompurify'
 import { marked } from 'marked'
-import { FaArrowsAlt, FaCompressArrowsAlt, FaHeart, FaEdit, FaEye } from 'react-icons/fa'
 import './App.css'
+import Editor from './components/Editor'
+import Previewer from './components/Previewer'
+import Footer from './components/Footer'
 
 marked.setOptions({
   gfm: true,
@@ -50,81 +52,20 @@ const App = () => {
 
   return (
     <div className='app'>
-      {/* Editor Section */}
-      <div
-        id='editor-wrapper'
-        className={!isEditorVisible ? 'hide-section' : ''}
-      >
-        <div id='editor-header'>
-          <div>
-            <label htmlFor='editor'>
-              <FaEdit /> Editor
-            </label>
-          </div>
-          <div>
-            {isPreviewerVisible ? (
-              <FaArrowsAlt
-                style={{ cursor: 'pointer' }}
-                onClick={editorHandleClick}
-              />
-            ) : (
-              <FaCompressArrowsAlt
-                style={{ cursor: 'pointer' }}
-                onClick={editorHandleClick}
-              />
-            )}
-          </div>
-        </div>
-        <div id='editor-body'>
-          <textarea
-            id='editor'
-            name='editor'
-            value={input}
-            onChange={handleOnChange}
-          />
-        </div>
-      </div>
-
-      {/* Previewer Section */}
-      <div
-        id='preview-wrapper'
-        className={!isPreviewerVisible ? 'hide-section' : ''}
-      >
-        <div id='preview-header'>
-          <div>
-            <FaEye /> Previewer
-          </div>
-          <div>
-            {isEditorVisible ? (
-              <FaArrowsAlt
-                style={{ cursor: 'pointer' }}
-                onClick={previewerHandleClick}
-              />
-            ) : (
-              <FaCompressArrowsAlt
-                style={{ cursor: 'pointer' }}
-                onClick={previewerHandleClick}
-              />
-            )}
-          </div>
-        </div>
-        <div
-          id='preview'
-          dangerouslySetInnerHTML={{
-            __html: output
-          }}
-        />
-      </div>
-      <footer>
-        Made with <FaHeart style={{ color: 'red', fontSize: '1rem' }} /> by{' '}
-        <a
-          href='https://twitter.com/kevinnjoroge'
-          target='_blank'
-          rel='noreferrer'
-        >
-          Kevin Nganga
-        </a>{' '}
-      </footer>
+      <Editor
+        input={input}
+        isEditorVisible={isEditorVisible}
+        isPreviewerVisible={isPreviewerVisible}
+        editorHandleClick={editorHandleClick}
+        handleOnChange={handleOnChange}
+      />
+      <Previewer
+        output={output}
+        isPreviewerVisible={isPreviewerVisible}
+        isEditorVisible={isEditorVisible}
+        previewerHandleClick={previewerHandleClick}
+      />
+      <Footer />
     </div>
   )
 }
